@@ -22,6 +22,12 @@ Prettify Query:  Shift-Ctrl-P (or press the prettify button above)
 
 Auto Complete:  Ctrl-Space (or just start typing)`
 
+### `GraphiQL Link: http://localhost:8080/graphiql`
+### `Voyager Link: http://localhost:8080/voyager`
+* P.S: Base URL and Port Number might change as per deployment. Refer to Tomcat Logs for that.
+
+## Sample Queries for reference:
+
 ------------------------------
 
     {
@@ -56,6 +62,21 @@ Auto Complete:  Ctrl-Space (or just start typing)`
             group {
                 name
                 orientation
+            }
+        }
+    }
+
+------------------------------
+
+    mutation {
+        deleteCharacter(id: "Char3") {
+            id
+            name
+            age
+            group{
+                members{
+                    name
+                }
             }
         }
     }

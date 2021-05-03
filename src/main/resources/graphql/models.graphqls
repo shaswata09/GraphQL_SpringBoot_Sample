@@ -25,6 +25,7 @@ type Query {
 
 type Mutation {
     addCharacter(name: String age: Int groupName: String): SuperCharacter
+    deleteCharacter(id: String!): SuperCharacter
 
     addGroup(name: String! orientation: Orientation): SuperGroup
 }

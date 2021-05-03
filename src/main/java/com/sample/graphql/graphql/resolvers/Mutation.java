@@ -22,6 +22,10 @@ public class Mutation implements GraphQLMutationResolver {
         return this.characterRepo.addCharacter(name, age, groupName);
     }
 
+    public SuperCharacter deleteCharacter(String id) {
+        return this.characterRepo.deleteCharacter(id);
+    }
+
     public SuperGroup addGroup(String name, Orientation orientation) {
         return this.groupRepo.addGroup(name, orientation);
     }

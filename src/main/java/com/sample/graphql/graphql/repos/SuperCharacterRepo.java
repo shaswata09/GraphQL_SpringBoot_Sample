@@ -67,4 +67,13 @@ public class SuperCharacterRepo {
         return newCharacter;
     }
 
+    public SuperCharacter deleteCharacter(String id) {
+        SuperCharacter deletableCharacter = getCharacterById(id);
+        if (null != deletableCharacter) {
+            deletableCharacter.getGroup().removeCharacter(deletableCharacter);
+            this.theCharacters.remove(deletableCharacter);
+        }
+        return deletableCharacter;
+    }
+
 }
