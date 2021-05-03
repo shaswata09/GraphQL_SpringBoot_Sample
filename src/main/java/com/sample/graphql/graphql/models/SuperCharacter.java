@@ -9,4 +9,5 @@ public class SuperCharacter {
     private String id;
     private String name;
     private Integer age;
+    private SuperGroup group;
 }

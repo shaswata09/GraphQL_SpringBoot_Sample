@@ -19,11 +19,16 @@ public class SuperGroupRepo {
     }
 
     public void seedGroups() {
-        SuperGroup G1 = SuperGroup.builder()
+        SuperGroup g1 = SuperGroup.builder()
                 .name("Bad Dudes")
                 .orientation(Orientation.VILLAIN)
                 .build();
-        this.theGroup.add(G1);
+        SuperGroup g2 = SuperGroup.builder()
+                .name("Good Guyz")
+                .orientation(Orientation.HERO)
+                .build();
+        this.theGroup.add(g1);
+        this.theGroup.add(g2);
     }
 
     public List<SuperGroup> getGroups() {
@@ -43,6 +48,6 @@ public class SuperGroupRepo {
         List<SuperGroup> matched = this.theGroup.stream()
                 .filter(g -> g.getName().equalsIgnoreCase(name))
                 .collect(Collectors.toList());
-        return matched.size()>0 ? matched.get(0) : null;
+        return matched.size() > 0 ? matched.get(0) : null;
     }
 }

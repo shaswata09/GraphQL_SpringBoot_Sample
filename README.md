@@ -29,6 +29,10 @@ Auto Complete:  Ctrl-Space (or just start typing)`
             id
             name
             age
+            group {
+               name
+               orientation
+            }
         }
     }
 
@@ -45,10 +49,14 @@ Auto Complete:  Ctrl-Space (or just start typing)`
 ------------------------------
 
     mutation {
-        addCharacter(name: "New Character", age: 21) {
+        addCharacter(name: "New Character" age: 21 groupName: "Good Guyz") {
             id
             name
             age
+            group {
+                name
+                orientation
+            }
         }
     }
 
