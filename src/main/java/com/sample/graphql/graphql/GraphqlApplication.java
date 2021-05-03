@@ -1,6 +1,7 @@
 package com.sample.graphql.graphql;
 
 import com.sample.graphql.graphql.repos.SuperCharacterRepo;
+import com.sample.graphql.graphql.repos.SuperGroupRepo;
 import com.sample.graphql.graphql.resolvers.Mutation;
 import com.sample.graphql.graphql.resolvers.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,21 +12,24 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class GraphqlApplication {
 
-	@Autowired
-	SuperCharacterRepo superCharacterRepo;
+    @Autowired
+    SuperCharacterRepo superCharacterRepo;
 
-	@Bean
-	public Query query() {
-		return new Query(superCharacterRepo);
-	}
+    @Autowired
+    SuperGroupRepo superGroupRepo;
 
-	@Bean
-	public Mutation mutation() {
-		return new Mutation(superCharacterRepo);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GraphqlApplication.class, args);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(GraphqlApplication.class, args);
-	}
+    @Bean
+    public Query query() {
+        return new Query(superCharacterRepo, superGroupRepo);
+    }
+
+    @Bean
+    public Mutation mutation() {
+        return new Mutation(superCharacterRepo, superGroupRepo);
+    }
 
 }
