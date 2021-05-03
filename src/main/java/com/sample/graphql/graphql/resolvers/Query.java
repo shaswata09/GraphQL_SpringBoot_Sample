@@ -19,4 +19,8 @@ public class Query implements GraphQLQueryResolver {
     public List<SuperCharacter> characters() {
         return this.superCharacterRepo.getCharacters();
     }
+
+    public SuperCharacter characterById(String id) {
+        return superCharacterRepo.getCharacterById(id);
+    }
 }
