@@ -42,7 +42,18 @@ public class SuperCharacterRepo {
         List<SuperCharacter> matched = this.theCharacters.stream()
                 .filter(c -> c.getId().equalsIgnoreCase(id))
                 .collect(Collectors.toList());
-        return matched.size()>0 ? matched.get(0) : null;
+        return matched.size() > 0 ? matched.get(0) : null;
+    }
+
+    public SuperCharacter addCharacter(String name, Integer age) {
+        SuperCharacter newCharacter = SuperCharacter.builder()
+                                            .id("Char" + (this.theCharacters.size()+1))
+                                            .name(name)
+                                            .age(age)
+                                            .build();
+        log.info("> Mutation.addCharacter( " + name + " )");
+        this.theCharacters.add(newCharacter);
+        return newCharacter;
     }
 
 }

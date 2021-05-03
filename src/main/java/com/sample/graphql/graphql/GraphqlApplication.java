@@ -1,6 +1,7 @@
 package com.sample.graphql.graphql;
 
 import com.sample.graphql.graphql.repos.SuperCharacterRepo;
+import com.sample.graphql.graphql.resolvers.Mutation;
 import com.sample.graphql.graphql.resolvers.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +17,11 @@ public class GraphqlApplication {
 	@Bean
 	public Query query() {
 		return new Query(superCharacterRepo);
+	}
+
+	@Bean
+	public Mutation mutation() {
+		return new Mutation(superCharacterRepo);
 	}
 
 	public static void main(String[] args) {
