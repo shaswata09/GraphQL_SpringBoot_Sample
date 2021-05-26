@@ -36,5 +36,4 @@ public class Query implements GraphQLQueryResolver {
         return this.superGroupRepo.getGroupByName(name);
     }
 
-
 }
